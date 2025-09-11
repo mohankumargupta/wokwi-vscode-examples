@@ -1,0 +1,8 @@
+[wokwi]
+version = 1
+firmware = '.esphome/build/wledesphome/.pioenvs/wledesphome/firmware.elf'
+elf = '.esphome/build/wledesphome/.pioenvs/wledesphome/firmware.elf'
+
+# [[net.forward]]
+# from = "localhost:21324"
+# to = "target:21324"
