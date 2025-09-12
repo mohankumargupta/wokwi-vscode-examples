@@ -4,4 +4,8 @@ set windows-shell := ["powershell", "-c"]
 latest:
     uv tool install esphome 
     uv tool install pip
+    uv tool install copier
+    
+new ref:
+    copier copy --vcs-ref {{ref}} gh:mohankumargupta/wokwi-copier-templates . 
 

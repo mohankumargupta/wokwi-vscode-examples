@@ -1,0 +1,14 @@
+esphome:
+  name: helloworld
+  on_boot:
+    - priority: -100
+      then:
+        - logger.log: Hello World!
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+logger:
+
