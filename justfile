@@ -1,6 +1,9 @@
 set shell := ["sh", "-c"]
 set windows-shell := ["powershell", "-c"]
 
+_main:
+    @just --list
+
 latest:
     uv tool install esphome 
     uv tool install pip

@@ -1,0 +1,11 @@
+[wokwi]
+version = 1
+firmware = '.esphome/build/webserver/.pioenvs/webserver/firmware.elf'
+elf = '.esphome/build/webserver/.pioenvs/webserver/firmware.elf'
+
+[[net.forward]]
+from = "localhost:8180"
+to = "target:80"
+
+# wifi SSID is Wokwi-GUEST
+# https://docs.wokwi.com/guides/esp32-wifi
