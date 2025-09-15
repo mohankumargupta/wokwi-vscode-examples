@@ -19,7 +19,7 @@
           - uses: actions/checkout@v4
           - uses: esphome/build-action@v6
             with:
-              yaml-file: ${{ github.event.inputs.binary_name }}
+              yaml-file: ${{ github.event.inputs.binary_name }}/${{ github.event.inputs.binary_name }}.yaml
 
 
 
