@@ -20,21 +20,24 @@
           - uses: esphome/build-action@v6
             with:
               yaml-file: ${{ github.event.inputs.binary_name }}/${{ github.event.inputs.binary_name }}.yaml
-          - name: Show file structure (without tree)
-            run: |
-              echo "File structure:"
-              find . -type f | sort
+          - name: Upload binary
+            uses: actions/upload-artifact@v4
+            with:
+              name: ${{ github.event.inputs.binary_name }}.bin
+              path: .esphome/build/${{ github.event.inputs.binary_name }}/.pioenvs/${{ github.event.inputs.binary_name }}/firmware.bin
+              if-no-files-found: error
+              retention-days: 7  
           - name: Upload factory binary
             uses: actions/upload-artifact@v4
             with:
-              name: ${{ github.event.inputs.binary_name }}-factory-bin
-              path: ${{ github.event.inputs.binary_name }}/${{ github.event.inputs.binary_name }}.factory.bin
+              name: ${{ github.event.inputs.binary_name }}.factory.bin
+              path: .esphome/build/${{ github.event.inputs.binary_name }}/.pioenvs/${{ github.event.inputs.binary_name }}/firmware.factory.bin
               if-no-files-found: error
               retention-days: 7      
           - name: Upload ELF file
             uses: actions/upload-artifact@v4
             with:
-              name: ${{ github.event.inputs.binary_name }}-elf
-              path: ${{ github.event.inputs.binary_name }}/${{ github.event.inputs.binary_name }}.elf
+              name: ${{ github.event.inputs.binary_name }}.elf
+              path: .esphome/build/${{ github.event.inputs.binary_name }}/.pioenvs/${{ github.event.inputs.binary_name }}/firmware.elf
               if-no-files-found: error
               retention-days: 7
