@@ -1,0 +1,25 @@
+substitutions:
+  tagname: mohan
+
+esphome:
+  name: testpsram
+  on_boot:
+    - priority: 800
+      then:
+        - logger.log:
+            format: boo 
+            tag: mohan
+            level: INFO
+
+esp32:
+  board: esp32-s3-devkitm-1
+  framework:
+    type: arduino
+
+logger:
+  hardware_uart: UART0
+
+
+
+
+
