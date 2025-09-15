@@ -20,6 +20,17 @@
           - uses: esphome/build-action@v6
             with:
               yaml-file: ${{ github.event.inputs.binary_name }}/${{ github.event.inputs.binary_name }}.yaml
-
-
-
+          - name: Upload factory binary
+            uses: actions/upload-artifact@v4
+            with:
+              name: ${{ github.event.inputs.binary_name }}-factory-bin
+              path: ${{ github.event.inputs.binary_name }}/${{ github.event.inputs.binary_name }}.factory.bin
+              if-no-files-found: error
+              retention-days: 7      
+          - name: Upload ELF file
+            uses: actions/upload-artifact@v4
+            with:
+              name: ${{ github.event.inputs.binary_name }}-elf
+              path: ${{ github.event.inputs.binary_name }}/${{ github.event.inputs.binary_name }}.elf
+              if-no-files-found: error
+              retention-days: 7
