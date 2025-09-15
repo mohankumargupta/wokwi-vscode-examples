@@ -1,7 +1,0 @@
-[wokwi]
-version = 1
-firmware = '.esphome/build/pictureframe/.pioenvs/pictureframe/firmware.elf'
-elf = '.esphome/build/pictureframe/.pioenvs/pictureframe/firmware.elf'
-
-# wifi SSID is Wokwi-GUEST
-# https://docs.wokwi.com/guides/esp32-wifi

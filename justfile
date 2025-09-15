@@ -7,6 +7,6 @@ _main:
 latest:
     uv tool install copier
     
-new ref:
+new ref="main":
     copier copy --vcs-ref {{ref}} gh:mohankumargupta/wokwi-copier-templates . 
 
