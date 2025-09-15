@@ -6,10 +6,11 @@ esphome:
   on_boot:
     - priority: 800
       then:
-        - logger.log:
-            format: Hello World
-            tag: mohan
-            level: INFO
+        - logger.log: ""
+        - logger.log: -------------------------------------------------------      
+        - lambda: |-
+            ESP_LOGI("${tagname}", "PSRAM: %zu bytes AVAILABLE: %zu", ESP.getPsramSize(), ESP.getFreePsram());
+        - logger.log: -------------------------------------------------------   
 
 esp32:
   board: esp32-s3-devkitm-1

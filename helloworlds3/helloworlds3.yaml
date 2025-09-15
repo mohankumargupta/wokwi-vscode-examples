@@ -6,10 +6,13 @@ esphome:
   on_boot:
     - priority: 800
       then:
+        - logger.log: ""
+        - logger.log: -------------------------------------------------------
         - logger.log:
             format: Hello World
             tag: ${tagname}
             level: INFO
+        - logger.log: -------------------------------------------------------
 
 esp32:
   board: esp32-s3-devkitm-1
