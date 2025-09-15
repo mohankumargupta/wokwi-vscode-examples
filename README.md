@@ -6,3 +6,9 @@
 
 https://wokwi.com/experimental/viewer
 
+```
+https://wokwi.com/experimental/viewer?diagram=diagram.json&firmware=firmware.bin
+
+https://wokwi.com/experimental/viewer?diagram=diagram.json&firmware=firmware.elf
+```
+
