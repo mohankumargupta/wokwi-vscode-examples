@@ -17,6 +17,10 @@ esp32:
   framework:
     type: arduino
 
+psram:
+  mode: octal
+  speed: 80MHz
+
 logger:
   hardware_uart: UART0
 
