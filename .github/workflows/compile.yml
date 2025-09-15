@@ -1,5 +1,4 @@
     name: Compile esphome
-
     on:
       workflow_dispatch:
         inputs:
@@ -7,8 +6,11 @@
             description: 'Enter the name of the YAML file (without .yaml extension)'
             required: true
             type: string
-            default: 'default'
-
+            default: 'helloworld'
+            options:
+              - helloworld
+              - webserver
+              - wledesphome  
     jobs:
       compile:
         name: ${{ github.event.inputs.binary_name }} 
