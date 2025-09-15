@@ -5,7 +5,7 @@
           binary_name:
             description: 'Enter the name of the YAML file (without .yaml extension)'
             required: true
-            type: string
+            type: choice
             default: 'helloworld'
             options:
               - helloworld
