@@ -3,3 +3,7 @@ set windows-shell := ["powershell", "-c"]
 
 compile:
     esphome compile pictureframe.yaml
+
+compileuv:
+    uvx --with=pip esphome compile pictureframe.yaml
+
