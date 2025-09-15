@@ -1,4 +1,4 @@
-    name: Hello World Workflow
+    name: Compile esphome
 
     on:
       workflow_dispatch:
