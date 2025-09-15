@@ -5,8 +5,6 @@ _main:
     @just --list
 
 latest:
-    uv tool install esphome 
-    uv tool install pip
     uv tool install copier
     
 new ref:
