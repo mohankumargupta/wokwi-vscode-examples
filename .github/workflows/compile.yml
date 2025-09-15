@@ -20,6 +20,10 @@
           - uses: esphome/build-action@v6
             with:
               yaml-file: ${{ github.event.inputs.binary_name }}/${{ github.event.inputs.binary_name }}.yaml
+          - name: Show file structure (without tree)
+            run: |
+              echo "File structure:"
+              find . -type f | sort
           - name: Upload factory binary
             uses: actions/upload-artifact@v4
             with:
