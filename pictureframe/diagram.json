@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "technetium",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": -137.53,
+      "left": 88.48,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "board-ili9341-cap-touch",
+      "id": "lcd1",
+      "top": 65.92,
+      "left": 446.34,
+      "rotate": 90,
+      "attrs": {
+         "swapXY": "1",
+         "flipHorizontal": "0",
+         "flipvertical": "1"
+      }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-441.6", "v-230.4", "h96" ] ],
+    [ "lcd1:GND", "esp:GND.3", "black", [ "h-345.6", "v-134.4" ] ],
+    [ "lcd1:CS", "esp:15", "green", [ "h0" ] ],
+    [ "lcd1:RST", "esp:RST", "green", [ "h0" ] ],
+    [ "lcd1:D/C", "esp:2", "green", [ "h0" ] ],
+    [ "lcd1:MOSI", "esp:13", "green", [ "h-470.4", "v-297.6", "h144" ] ],
+    [ "lcd1:SCK", "esp:14", "green", [ "h0" ] ],
+    [ "lcd1:LED", "esp:21", "green", [ "h0" ] ],
+    [ "lcd1:MISO", "esp:12", "green", [ "h-489.6", "v-336", "h172.8" ] ]
+  ],
+  "dependencies": {}
+}

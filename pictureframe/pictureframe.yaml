@@ -1,0 +1,51 @@
+esphome:
+  name: pictureframe
+  on_boot:
+    - priority: -100
+      then:
+        - logger.log: Hello World!
+
+esp32:
+  board: esp32-s3-devkitm-1
+  framework:
+    type: arduino
+
+logger:
+  hardware_uart: UART0
+
+wifi:
+  ssid:  Wokwi-GUEST
+
+http_request:
+  verify_ssl: false
+  timeout: 10s
+
+online_image:
+  url: https://www.artic.edu/iiif/2/25c31d8d-21a4-9ea1-1d73-6a2eca4dda7e/full/320,240/0/default.jpg
+  format: jpg
+  type: RGB565
+  id: onlineimage
+
+spi:
+  clk_pin: GPIO14
+  mosi_pin: GPIO13
+
+display:
+  - platform: mipi_spi
+    model: ILI9341
+    id: mylcd
+    dc_pin: GPIO2
+    #reset_pin: 0
+    cs_pin: GPIO15
+    rotation: 0
+    invert_colors: false
+    #color_depth: 8
+    color_order: bgr
+    dimensions:
+      width: 320
+      height: 240
+
+
+
+
+
