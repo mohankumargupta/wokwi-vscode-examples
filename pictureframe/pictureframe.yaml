@@ -38,9 +38,10 @@ image:
      
 
 online_image:
-  url: https://upload.wikimedia.org/wikipedia/commons/1/15/The_Triangle.png
+  url: https://upload.wikimedia.org/wiktionary/en/a/a5/Shocked_Pikachu.png
   format: png
-  type: RGB565
+  resize: 320x240
+  type: rgb565
   id: onlineimage
   on_download_finished: 
     then:
@@ -68,6 +69,7 @@ display:
     dimensions:
       width: ${tft_width}
       height: ${tft_height}
+      offset_width: "0"
     transform:
       swap_xy: true
       mirror_x: false
