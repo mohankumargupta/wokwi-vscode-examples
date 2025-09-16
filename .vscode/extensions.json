@@ -2,6 +2,7 @@
     "recommendations": [
         "discretegames.f5anything",
         "sclu1034.justfile",
-        "wokwi.wokwi-vscode"
+        "wokwi.wokwi-vscode",
+        "esphome.esphome-vscode"
     ]
 }

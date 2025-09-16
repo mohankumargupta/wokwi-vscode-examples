@@ -1,3 +1,7 @@
+substitutions:
+  tft_width: 320
+  tft_height: 240
+
 esphome:
   name: pictureframe
   on_boot:
@@ -20,11 +24,22 @@ http_request:
   verify_ssl: false
   timeout: 10s
 
+image:
+  - file: empty.png
+    type: binary
+    id: emptyimage
+     
+
 online_image:
   url: https://www.artic.edu/iiif/2/25c31d8d-21a4-9ea1-1d73-6a2eca4dda7e/full/320,240/0/default.jpg
   format: jpg
   type: RGB565
   id: onlineimage
+  on_download_finished: 
+    then:
+      - lvgl.image.update:
+          id: lvglimage
+          src: onlineimage
 
 spi:
   clk_pin: GPIO14
@@ -40,14 +55,25 @@ display:
     rotation: 0
     invert_colors: false
     #color_depth: 8
+    show_test_card: true
     color_order: bgr
     dimensions:
-      width: 320
-      height: 240
+      width: ${tft_width}
+      height: ${tft_height}
     transform:
       swap_xy: true
       mirror_x: false
       mirror_y: false
+
+lvgl:
+  bg_color: black
+  text_color: white
+  widgets:
+    - image:
+        src: emptyimage
+        id: lvglimage
+
+
 
 
 
