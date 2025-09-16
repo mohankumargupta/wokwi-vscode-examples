@@ -38,8 +38,8 @@ image:
      
 
 online_image:
-  url: https://www.artic.edu/iiif/2/25c31d8d-21a4-9ea1-1d73-6a2eca4dda7e/full/320,240/0/default.jpg
-  format: jpg
+  url: https://upload.wikimedia.org/wikipedia/commons/1/15/The_Triangle.png
+  format: png
   type: RGB565
   id: onlineimage
   on_download_finished: 
