@@ -14,6 +14,10 @@ esp32:
   framework:
     type: arduino
 
+psram:
+  mode: octal
+  speed: 80MHz
+
 logger:
   hardware_uart: UART0
 
@@ -57,9 +61,9 @@ display:
     cs_pin: GPIO15
     rotation: 0
     invert_colors: false
-    update_interval: 60s
+    update_interval: never
     #color_depth: 8
-    show_test_card: true
+    #show_test_card: true
     color_order: bgr
     dimensions:
       width: ${tft_width}
@@ -70,6 +74,7 @@ display:
       mirror_y: false
 
 lvgl:
+  buffer_size: 25%
   bg_color: black
   text_color: white
   widgets:

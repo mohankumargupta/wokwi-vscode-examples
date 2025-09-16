@@ -9,7 +9,11 @@
       "top": -137.53,
       "left": 88.48,
       "rotate": 90,
-      "attrs": {}
+      "attrs": {
+        "flashSize": "8",
+        "psRamSize": "8",
+        "psramType": "octal"
+      }
     },
     {
       "type": "board-ili9341-cap-touch",
