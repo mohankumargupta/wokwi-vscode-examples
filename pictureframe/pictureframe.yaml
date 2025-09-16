@@ -19,6 +19,9 @@ logger:
 
 wifi:
   ssid:  Wokwi-GUEST
+  on_connect: 
+    then:
+      - component.update: onlineimage
 
 http_request:
   verify_ssl: false
@@ -54,6 +57,7 @@ display:
     cs_pin: GPIO15
     rotation: 0
     invert_colors: false
+    update_interval: 60s
     #color_depth: 8
     show_test_card: true
     color_order: bgr
