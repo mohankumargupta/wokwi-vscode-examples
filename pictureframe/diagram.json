@@ -18,9 +18,9 @@
       "left": 446.34,
       "rotate": 90,
       "attrs": {
-         "swapXY": "1",
+         "swapXY": "0",
          "flipHorizontal": "0",
-         "flipvertical": "1"
+         "flipvertical": "0"
       }
     }
   ],
