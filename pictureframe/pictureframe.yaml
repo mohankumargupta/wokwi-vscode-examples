@@ -39,7 +39,7 @@ image:
 
 online_image:
   # url: https://upload.wikimedia.org/wiktionary/en/a/a5/Shocked_Pikachu.png
-  url: https://upload.wikimedia.org/wiktionary/en/a/a5/Shocked_Pikachu.png
+  url: https://raw.githubusercontent.com/mohankumargupta/wokwi-vscode-examples/refs/heads/main/pictureframe/animal.png
   format: png
   resize: 320x240
   type: rgb565
