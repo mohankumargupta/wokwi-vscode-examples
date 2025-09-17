@@ -4,10 +4,10 @@ substitutions:
 
 esphome:
   name: pictureframe
-  on_boot:
-    - priority: -100
-      then:
-        - logger.log: Hello World!
+  # on_boot:
+  #   - priority: -100
+  #     then:
+  #       - logger.log: Hello World!
 
 esp32:
   board: esp32-s3-devkitm-1
@@ -18,8 +18,8 @@ psram:
   mode: octal
   speed: 80MHz
 
-logger:
-  hardware_uart: UART0
+# logger:
+#   hardware_uart: UART0
 
 wifi:
   ssid:  Wokwi-GUEST
@@ -83,15 +83,4 @@ lvgl:
     - image:
         src: emptyimage
         id: lvglimage
-
-
-
-
-
-
-
-
-
-
-
 

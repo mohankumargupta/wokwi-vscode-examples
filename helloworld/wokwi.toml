@@ -1,6 +1,6 @@
 [wokwi]
 version = 1
-firmware = '.esphome/build/helloworld/.pioenvs/helloworld/firmware.elf'
+firmware = '.esphome/build/helloworld/.pioenvs/helloworld/firmware.bin'
 elf = '.esphome/build/helloworld/.pioenvs/helloworld/firmware.elf'
 
 # wifi SSID is Wokwi-GUEST

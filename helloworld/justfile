@@ -3,3 +3,8 @@ set windows-shell := ["powershell", "-c"]
 
 compile:
     uvx --with=pip esphome compile helloworld.yaml
+
+copy:
+	@python copy.py
+
+
