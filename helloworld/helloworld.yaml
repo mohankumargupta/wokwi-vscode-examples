@@ -1,10 +1,24 @@
+substitutions:
+  tag: mohan
+
 esphome:
   name: helloworld
   on_boot:
     - priority: -100
       then:
+        - logger.log:
+            format: "Hello ESP32!"
+            level: INFO
+            tag: ${tag}
         - output.turn_on: red_led
 
+logger:
+  level: INFO
+  logs:
+    logger: NONE
+    app: NONE
+    component: NONE
+    
 esp32:
   board: esp32dev
   framework:

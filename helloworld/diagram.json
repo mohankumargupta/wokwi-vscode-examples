@@ -3,7 +3,7 @@
   "author": "Benny Meisels",
   "editor": "wokwi",
   "parts": [
-    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 4.7, "left": -5, "attrs": {} },
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -30, "left": -5, "attrs": {} },
     {
       "type": "wokwi-led",
       "id": "led-red",
