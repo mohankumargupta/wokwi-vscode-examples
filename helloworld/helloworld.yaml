@@ -3,12 +3,14 @@ esphome:
   on_boot:
     - priority: -100
       then:
-        - logger.log: Hello World!
+        - output.turn_on: red_led
 
 esp32:
   board: esp32dev
   framework:
     type: arduino
 
-logger:
-
+output:
+  - platform: gpio
+    pin: GPIO2
+    id: red_led

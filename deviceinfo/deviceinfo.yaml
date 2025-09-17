@@ -1,0 +1,29 @@
+esphome:
+  name: deviceinfo
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+psram:
+
+logger:
+  logs:
+    logger: INFO
+    debug: INFO
+
+debug:
+  update_interval: 360s
+
+text_sensor:
+  - platform: debug
+    device:
+      name: "Device Info"
+
+sensor:
+  - platform: debug
+    free:
+      name: "Heap Free"
+
+

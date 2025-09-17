@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "author": "Benny Meisels",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 4.7, "left": -5, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "led-red:C", "black", [ "h66.9", "v-105.7" ] ],
+    [ "led-red:A", "r1:1", "green", [ "h-9.6", "v19.2" ] ],
+    [ "r1:2", "esp:D2", "green", [ "h0", "v8.4" ] ]
+  ]
+}
