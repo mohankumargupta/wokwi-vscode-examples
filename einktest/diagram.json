@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Vincenzo Caruso",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 46, "left": -5.34, "attrs": {} },
+    { "type": "board-epaper-2in9", "id": "epd1", "top": -143.4, "left": -120.72, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "epd1:GND", "esp:GND.2", "black", [ "h-69.43", "v228.73" ] ],
+    [ "epd1:VCC", "esp:VIN", "red", [ "h-78.76", "v252.33", "h5.33" ] ],
+    [ "epd1:BUSY", "esp:D23", "green", [ "h-30.1", "v-60.66", "h416.67", "v224.67" ] ],
+    [ "epd1:RST", "esp:D22", "green", [ "h-39.43", "v-82.93", "h439.33", "v260", "h-10" ] ],
+    [ "epd1:DC", "esp:D21", "green", [ "h-52.1", "v-106.56", "h467.54", "v312.24" ] ],
+    [
+      "epd1:CS",
+      "esp:D15",
+      "green",
+      [ "h-59.84", "v0.74", "h-80.75", "v392.99", "h579.88", "v-113.05" ]
+    ],
+    [
+      "epd1:CLK",
+      "esp:D4",
+      "green",
+      [ "h-123.67", "v368.68", "h547.57", "v-133.82", "h-221.54" ]
+    ],
+    [ "epd1:DIN", "esp:D5", "green", [ "h-111.98", "v338.18", "h506.47", "v-134.18" ] ]
+  ],
+  "dependencies": {}
+}

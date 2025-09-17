@@ -1,0 +1,41 @@
+esphome:
+  name: einktest
+  name_add_mac_suffix: false
+  # on_boot:
+  #   - priority: -100
+  #     then:
+  #       - logger.log: Hello World!
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+logger:
+
+spi:
+  clk_pin: GPIO4
+  mosi_pin: 
+    number: GPIO5
+    ignore_strapping_warning: true
+
+color:
+  - id: COLOR_GREEN
+    red: 0%
+    green: 100%
+    blue: 0%
+
+display:
+  - platform: waveshare_epaper
+    model: gdey029t94
+    cs_pin: 
+      number: GPIO15
+      ignore_strapping_warning: true
+    dc_pin: GPIO21
+    busy_pin: GPIO23
+    reset_pin: GPIO22
+    update_interval: 300s
+    lambda: |-
+      it.rectangle(50, 50, 100,100, id(COLOR_GREEN));
+
+
