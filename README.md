@@ -4,15 +4,8 @@
 
 ## Wokwi experimental viewer
 
-https://wokwi.com/experimental/viewer
+### Hello World
 
-```
-https://wokwi.com/experimental/viewer?diagram=diagram.json&firmware=firmware.bin
-
-https://wokwi.com/experimental/viewer?diagram=diagram.json&firmware=firmware.elf
-```
-
-https://wokwi.com/experimental/viewer?diagram=https://gist.githubusercontent.com/urish/c3d58ddaa0817465605ecad5dc171396/raw/ab1abfa902835a9503d412d55a97ee2b7e0a6b96/diagram.json&firmware=https://github.com/mohankumargupta/wokwi-vscode-examples/raw/refs/heads/main/pictureframe/firmware/firmware.elf
-
-https://wokwi.com/experimental/viewer?diagram=https://github.com/mohankumargupta/wokwi-vscode-examples/raw/refs/heads/main/helloworld/diagram.json&firmware=https://github.com/mohankumargupta/wokwi-vscode-examples/raw/refs/heads/main/helloworld/firmware/firmware.elf
+[Click here](
+https://wokwi.com/experimental/viewer?diagram=https%3A%2F%2Fraw.githubusercontent.com%2Fmohankumargupta%2Fwokwi-vscode-examples%2Frefs%2Fheads%2Fmain%2Fhelloworld%2Fdiagram.json&firmware=https%3A%2F%2Fraw.githubusercontent.com%2Fmohankumargupta%2Fwokwi-vscode-examples%2Frefs%2Fheads%2Fmain%2Fhelloworld%2Ffirmware%2Ffirmware.factory.bin)
 
