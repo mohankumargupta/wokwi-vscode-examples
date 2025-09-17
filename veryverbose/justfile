@@ -1,0 +1,8 @@
+set shell := ["sh", "-c"]
+set windows-shell := ["powershell", "-c"]
+
+compile:
+    uvx --with=pip esphome compile veryverbose.yaml
+
+copy:
+	@python copy.py
