@@ -3,3 +3,7 @@ set windows-shell := ["powershell", "-c"]
 
 compile:
     uvx --with=pip esphome compile pictureframe.yaml
+
+copy:
+	@python copy.py
+
