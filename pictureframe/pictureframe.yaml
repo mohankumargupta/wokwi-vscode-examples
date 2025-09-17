@@ -38,6 +38,7 @@ image:
      
 
 online_image:
+  # url: https://upload.wikimedia.org/wiktionary/en/a/a5/Shocked_Pikachu.png
   url: https://upload.wikimedia.org/wiktionary/en/a/a5/Shocked_Pikachu.png
   format: png
   resize: 320x240
