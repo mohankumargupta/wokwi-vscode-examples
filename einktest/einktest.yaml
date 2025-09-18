@@ -12,30 +12,41 @@ esp32:
     type: arduino
 
 logger:
+  level: VERY_VERBOSE
 
 spi:
   clk_pin: GPIO4
-  mosi_pin: 
-    number: GPIO5
-    ignore_strapping_warning: true
+  mosi_pin: GPIO5
 
-color:
-  - id: COLOR_GREEN
-    red: 0%
-    green: 100%
-    blue: 0%
+
+  #font:
+  # - file:
+  #     type: gfonts
+  #     family: Roboto
+  #     weight: 900
+  #   id: roboto
+  #   size: 16
+
+font:
+  - file: "gfonts://Roboto"
+    id: roboto
+    size: 20
 
 display:
   - platform: waveshare_epaper
-    model: gdey029t94
-    cs_pin: 
-      number: GPIO15
-      ignore_strapping_warning: true
+    # model: gdey029t94
+    model: 2.90in-dke
+    cs_pin: GPIO15
     dc_pin: GPIO21
     busy_pin: GPIO23
     reset_pin: GPIO22
-    update_interval: 300s
+    rotation: 270
+    full_update_every: 12 # every 12th time
+    update_interval: 60s
+    reset_duration: 5ms
     lambda: |-
-      it.rectangle(50, 50, 100,100, id(COLOR_GREEN));
+      it.filled_rectangle(40, 40, 30, 42);
+      //it.print(30, 30, id(roboto), "Hello World!");
+      //it.fill(COLOR_OFF);
 
 
