@@ -1,3 +1,8 @@
+
+
+#### You will need to let simulation run for about 45 seconds
+#### as it needs connect to wifi download image and decode.
+
 substitutions:
   tft_width: 320
   tft_height: 240
