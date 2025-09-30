@@ -16,12 +16,13 @@ esphome:
 
 esp32:
   board: esp32-s3-devkitm-1
+  cpu_frequency: 240MHz
   framework:
     type: arduino
 
 psram:
-  mode: octal
-  speed: 80MHz
+  mode: quad
+  speed: 120MHz
 
 # logger:
 #   hardware_uart: UART0
@@ -43,9 +44,9 @@ image:
      
 online_image:
   # url: https://upload.wikimedia.org/wiktionary/en/a/a5/Shocked_Pikachu.png
-  url: https://raw.githubusercontent.com/mohankumargupta/wokwi-vscode-examples/refs/heads/main/ili9341/animal.png
+  url: https://cdn.jsdelivr.net/gh/mohankumargupta/wokwi-vscode-examples@refs/heads/main/ili9341/animal.png
   format: png
-  resize: 320x240
+  #resize: 320x240
   type: rgb565
   id: onlineimage
   on_download_finished: 

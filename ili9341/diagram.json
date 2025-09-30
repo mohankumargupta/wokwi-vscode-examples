@@ -10,9 +10,9 @@
       "left": 88.48,
       "rotate": 90,
       "attrs": {
-        "flashSize": "16",
-        "psRamSize": "16",
-        "psramType": "octal"
+        "flashSize": "4",
+        "psRamSize": "4",
+        "psramType": "quad"
       }
     },
     {
