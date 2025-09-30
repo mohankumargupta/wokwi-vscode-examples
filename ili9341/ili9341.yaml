@@ -54,6 +54,7 @@ online_image:
       - lvgl.image.update:
           id: lvglimage
           src: onlineimage
+      - lvgl.page.show: animal
 
 spi:
   clk_pin: GPIO14
@@ -85,8 +86,15 @@ lvgl:
   buffer_size: 25%
   bg_color: black
   text_color: white
-  widgets:
-    - image:
-        src: emptyimage
-        id: lvglimage
+  pages:
+    - id: colorbars
+      widgets:
+        - canvas:
+            width: 320
+            height: 240
+    - id: animal
+      widgets:
+        - image:
+            src: emptyimage
+            id: lvglimage
 
