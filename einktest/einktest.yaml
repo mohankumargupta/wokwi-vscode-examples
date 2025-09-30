@@ -35,18 +35,24 @@ font:
 display:
   - platform: waveshare_epaper
     # model: gdey029t94
-    model: 2.90in-dke
-    cs_pin: GPIO15
-    dc_pin: GPIO21
-    busy_pin: GPIO23
-    reset_pin: GPIO22
-    rotation: 270
-    full_update_every: 12 # every 12th time
-    update_interval: 60s
-    reset_duration: 5ms
+    model: 2.90inv2
+    cs_pin: 
+      number: GPIO15
+      
+    dc_pin: 
+      number: GPIO21
+    busy_pin: 
+      number: GPIO23
+      inverted: false
+      
+    reset_pin: 
+      number: GPIO22
+    reset_duration: 100ms
+    #rotation: 270
+    full_update_every: 30
     lambda: |-
       it.filled_rectangle(40, 40, 30, 42);
       //it.print(30, 30, id(roboto), "Hello World!");
-      //it.fill(COLOR_OFF);
+      //it.fill(Color(255,255,0));//yellow
 
 

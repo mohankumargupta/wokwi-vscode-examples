@@ -2,7 +2,7 @@ set shell := ["sh", "-c"]
 set windows-shell := ["powershell", "-c"]
 
 compile:
-    uvx --with=pip esphome compile pictureframe.yaml
+    uvx --with=pip esphome compile ili9341.yaml
 
 copy:
 	@python copy.py

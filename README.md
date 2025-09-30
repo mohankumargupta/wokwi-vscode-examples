@@ -10,4 +10,4 @@
 
 ### Picture frame
 
-[Click here](https://github.com/mohankumargupta/wokwi-vscode-examples/tree/main/pictureframe)
+[Click here](https://github.com/mohankumargupta/wokwi-vscode-examples/tree/main/ili9341)

@@ -9,8 +9,10 @@
             default: 'helloworld'
             options:
               - helloworld
+              - ili9341
               - webserver
-              - wledesphome  
+              - wledesphome
+              
     jobs:
       compile:
         name: ${{ github.event.inputs.binary_name }} 

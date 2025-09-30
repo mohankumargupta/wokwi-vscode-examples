@@ -8,7 +8,7 @@ substitutions:
   tft_height: 240
 
 esphome:
-  name: pictureframe
+  name: ili9341
   # on_boot:
   #   - priority: -100
   #     then:
@@ -41,10 +41,9 @@ image:
     type: binary
     id: emptyimage
      
-
 online_image:
   # url: https://upload.wikimedia.org/wiktionary/en/a/a5/Shocked_Pikachu.png
-  url: https://raw.githubusercontent.com/mohankumargupta/wokwi-vscode-examples/refs/heads/main/pictureframe/animal.png
+  url: https://raw.githubusercontent.com/mohankumargupta/wokwi-vscode-examples/refs/heads/main/ili9341/animal.png
   format: png
   resize: 320x240
   type: rgb565

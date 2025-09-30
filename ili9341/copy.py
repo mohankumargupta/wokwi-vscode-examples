@@ -3,7 +3,7 @@ import shutil
 from pathlib import Path
 
 def main():
-    build_base = Path(".esphome") / "build" / "pictureframe" / ".pioenvs"/ "pictureframe"
+    build_base = Path(".esphome") / "build" / "ili9341" / ".pioenvs"/ "ili9341"
     firmware_bin = "firmware.factory.bin"
     firmware_elf = "firmware.elf"
     firmware_bin_full_path = build_base / firmware_bin 
