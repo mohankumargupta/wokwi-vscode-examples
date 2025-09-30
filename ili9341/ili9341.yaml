@@ -9,11 +9,17 @@ substitutions:
 
 esphome:
   name: ili9341
-  # on_boot:
-  #   - priority: -100
-  #     then:
-  #       - logger.log: Hello World!
-
+  on_boot:
+    - priority: -100
+      then:
+        - lvgl.canvas.draw_rectangle:
+            id: colorbarcanvas
+            x: 0
+            y: 0
+            width: 46
+            height: 210
+            bg_color: yellow
+ 
 esp32:
   board: esp32-s3-devkitm-1
   cpu_frequency: 240MHz
@@ -83,7 +89,7 @@ display:
       mirror_y: false
 
 lvgl:
-  buffer_size: 25%
+  buffer_size: 100%
   bg_color: black
   text_color: white
   pages:
@@ -92,6 +98,7 @@ lvgl:
         - canvas:
             width: 320
             height: 240
+            id: colorbarcanvas
     - id: animal
       widgets:
         - image:
