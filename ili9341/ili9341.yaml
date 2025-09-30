@@ -10,16 +10,58 @@ substitutions:
 esphome:
   name: ili9341
   on_boot:
-    - priority: -100
+    - priority: 800
       then:
         - lvgl.canvas.draw_rectangle:
             id: colorbarcanvas
             x: 0
             y: 0
+            width: 45
+            height: 210
+            bg_color: white
+        - lvgl.canvas.draw_rectangle:
+            id: colorbarcanvas
+            x: 45
+            y: 0
             width: 46
             height: 210
             bg_color: yellow
- 
+        - lvgl.canvas.draw_rectangle:
+            id: colorbarcanvas
+            x: 91
+            y: 0
+            width: 46
+            height: 210
+            bg_color: cyan
+        - lvgl.canvas.draw_rectangle:
+            id: colorbarcanvas
+            x: 137
+            y: 0
+            width: 46
+            height: 210
+            bg_color: lime
+        - lvgl.canvas.draw_rectangle:
+            id: colorbarcanvas
+            x: 183
+            y: 0
+            width: 46
+            height: 210
+            bg_color: magenta
+        - lvgl.canvas.draw_rectangle:
+            id: colorbarcanvas
+            x: 229
+            y: 0
+            width: 46
+            height: 210
+            bg_color: red
+        - lvgl.canvas.draw_rectangle:
+            id: colorbarcanvas
+            x: 275
+            y: 0
+            width: 45
+            height: 210
+            bg_color: blue
+
 esp32:
   board: esp32-s3-devkitm-1
   cpu_frequency: 240MHz
