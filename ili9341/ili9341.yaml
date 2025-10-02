@@ -10,7 +10,7 @@ substitutions:
 esphome:
   name: ili9341
   on_boot:
-    - priority: 800
+    - priority: -100
       then:
         - script.execute: colorbarscript
 
