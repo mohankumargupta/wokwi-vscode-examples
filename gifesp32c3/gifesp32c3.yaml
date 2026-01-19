@@ -14,22 +14,24 @@ esp32:
   partitions: partitions.csv
 
 spi:
-  clk_pin: GPIO4
-  mosi_pin: GPIO6
+  clk_pin: GPIO3
+  mosi_pin: GPIO4
 
 logger:
 
 animation:
   - file: ${gif_file}
     id: my_animation
-    type: RGB565 
+    type: RGB565
+    resize: 160x160 
 
 display:
   - platform: mipi_spi
     model: ILI9341
     id: mylcd
-    dc_pin: GPIO3
+    dc_pin: GPIO6
     cs_pin: GPIO8
+    reset_pin: GPIO7
     rotation: 0
     invert_colors: false
     update_interval: 3s

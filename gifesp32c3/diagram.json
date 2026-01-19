@@ -1,26 +1,22 @@
 {
   "version": 1,
-  "author": "Uri Shaked",
+  "author": "Raspberry Pi",
   "editor": "wokwi",
   "parts": [
-    {
-      "type": "board-esp32-c3-devkitm-1",
-      "id": "esp",
-      "top": 31.77,
-      "left": -126.78,
-      "attrs": {}
-    },
-    { "type": "wokwi-ili9341", "id": "lcd1", "top": 0.8, "left": 57.3, "attrs": {} }
+    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": -9.9, "left": -128.58, "attrs": {} },
+    { "type": "wokwi-ili9341", "id": "lcd1", "top": -85.6, "left": 9.3, "attrs": {} }
   ],
   "connections": [
-    [ "lcd1:GND", "esp:GND.8", "black", [ "v19.2", "h-76.8", "v-96" ] ],
-    [ "lcd1:SCK", "esp:4", "magenta", [ "v67.2", "h-144.01", "v-192" ] ],
-    [ "lcd1:CS", "esp:8", "blue", [ "v28.8", "h-96", "v-220.8" ] ],
-    [ "lcd1:VCC", "esp:5V.2", "red", [ "v9.6", "h-240", "v-134.4" ] ],
-    [ "lcd1:RST", "esp:9", "orange", [ "v38.4", "h-134.4", "v-172.8" ] ],
-    [ "lcd1:D/C", "esp:3", "purple", [ "v57.6", "h-288", "v-255.93" ] ],
-    [ "lcd1:MOSI", "esp:6", "gray", [ "v48", "h-105.61", "v-211.2" ] ],
-    [ "lcd1:MISO", "esp:5", "green", [ "v76.8", "h-172.81", "v-227.13" ] ]
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3.2", "lcd1:VCC", "red", [ "h-28.8", "v192", "h211.2", "v9.6" ] ],
+    [ "lcd1:GND", "esp:GND.6", "black", [ "v28.8", "h-105.6" ] ],
+    [ "lcd1:CS", "esp:5", "green", [ "v38.4", "h-96", "v-144" ] ],
+    [ "lcd1:RST", "esp:7", "blue", [ "v48", "h-96", "v-163.2", "h0", "v-9.6" ] ],
+    [ "lcd1:D/C", "esp:6", "magenta", [ "v57.6", "h-96", "v-172.8" ] ],
+    [ "esp:4", "lcd1:MOSI", "orange", [ "v0", "h8.32", "v163.2", "h144" ] ],
+    [ "lcd1:SCK", "esp:3", "yellow", [ "v86.4", "h-124.81", "v0", "h-134.4", "v-240" ] ],
+    [ "lcd1:LED", "lcd1:VCC", "red", [ "v-19.2", "h-67.21" ] ]
   ],
   "dependencies": {}
 }
