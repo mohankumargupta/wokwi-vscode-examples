@@ -4,6 +4,7 @@ substitutions:
   tft_width: 320
   tft_height: 240
 
+
 esphome:
   name: gifesp32c3
 
@@ -30,11 +31,11 @@ display:
     model: ILI9341
     id: mylcd
     dc_pin: GPIO6
-    cs_pin: GPIO8
+    cs_pin: GPIO5
     reset_pin: GPIO7
     rotation: 0
     invert_colors: false
-    update_interval: 3s
+    update_interval: 16ms
     color_order: bgr
     dimensions:
       width: ${tft_width}
@@ -46,4 +47,4 @@ display:
       mirror_y: false
     lambda: |-
       id(my_animation).next_frame();
-      it.image(0, 0, id(my_animation), COLOR_ON, COLOR_OFF);
+      it.image(0, 0, id(my_animation));
