@@ -1,0 +1,10 @@
+set shell := ["sh", "-c"]
+set windows-shell := ["powershell", "-c"]
+
+compile:
+    uvx --with=pip esphome compile gifesp32c3optimised.yaml
+
+copy:
+	@python copy.py
+
+

@@ -1,0 +1,47 @@
+substitutions:
+  tag: mohan
+  gif_file: "test.gif"
+  tft_width: 320
+  tft_height: 240
+
+esphome:
+  name: gifesp32c3
+
+esp32:
+  variant: esp32c3
+  framework:
+    type: esp-idf
+  partitions: partitions.csv
+
+spi:
+  clk_pin: GPIO4
+  mosi_pin: GPIO6
+
+logger:
+
+animation:
+  - file: ${gif_file}
+    id: my_animation
+    type: RGB565 
+
+display:
+  - platform: mipi_spi
+    model: ILI9341
+    id: mylcd
+    dc_pin: GPIO3
+    cs_pin: GPIO8
+    rotation: 0
+    invert_colors: false
+    update_interval: 3s
+    color_order: bgr
+    dimensions:
+      width: ${tft_width}
+      height: ${tft_height}
+      offset_width: "0"
+    transform:
+      swap_xy: true
+      mirror_x: false
+      mirror_y: false
+    lambda: |-
+      id(my_animation).next_frame();
+      it.image(0, 0, id(my_animation), COLOR_ON, COLOR_OFF);
