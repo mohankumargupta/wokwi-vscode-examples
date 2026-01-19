@@ -41,10 +41,10 @@ display:
       width: ${tft_width}
       height: ${tft_height}
       offset_width: "0"
-    transform:
-      swap_xy: true
-      mirror_x: false
-      mirror_y: false
+    # transform:
+    #   swap_xy: true
+    #   mirror_x: false
+    #   mirror_y: false
     lambda: |-
       id(my_animation).next_frame();
-      it.image(0, 0, id(my_animation));
+      it.image(120 - 35 , 160 - 35, id(my_animation));
