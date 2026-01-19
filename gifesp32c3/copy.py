@@ -3,7 +3,7 @@ import shutil
 from pathlib import Path
 
 def main():
-    build_base = Path(".esphome") / "build" / "helloworld" / ".pioenvs"/ "gifesp32c3"
+    build_base = Path(".esphome") / "build" / "gifesp32c3" / ".pioenvs"/ "gifesp32c3"
     firmware_bin = "firmware.factory.bin"
     firmware_elf = "firmware.elf"
     firmware_bin_full_path = build_base / firmware_bin 

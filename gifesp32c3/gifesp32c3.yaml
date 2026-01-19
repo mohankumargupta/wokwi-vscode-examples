@@ -24,7 +24,7 @@ animation:
   - file: ${gif_file}
     id: my_animation
     type: RGB565
-    resize: 160x160 
+    resize: 80x80
 
 display:
   - platform: mipi_spi
@@ -35,7 +35,7 @@ display:
     reset_pin: GPIO7
     rotation: 0
     invert_colors: false
-    update_interval: 16ms
+    update_interval: 50ms
     color_order: bgr
     dimensions:
       width: ${tft_width}
