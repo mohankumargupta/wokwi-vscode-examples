@@ -20,6 +20,11 @@ spi:
 
 logger:
 
+wifi:
+  ssid:  Wokwi-GUEST
+
+
+
 animation:
   - file: ${gif_file}
     id: my_animation
@@ -35,7 +40,7 @@ display:
     reset_pin: GPIO7
     rotation: 0
     invert_colors: false
-    update_interval: 50ms
+    update_interval: 350ms
     color_order: bgr
     dimensions:
       width: ${tft_width}
@@ -48,3 +53,7 @@ display:
     lambda: |-
       id(my_animation).next_frame();
       it.image(120 - 35 , 160 - 35, id(my_animation));
+
+
+
+
