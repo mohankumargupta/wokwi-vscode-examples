@@ -7,11 +7,21 @@ substitutions:
 
 esphome:
   name: gifesp32c3
+  on_boot:
+    priority: -100
+    then:
+      - lambda: |-
+          uint32_t free_heap = ESP.getFreeHeap();
+          uint32_t free_flash = ESP.getFreeSketchSpace();
+          ESP_LOGI("boot_info", "------------------------------------");
+          ESP_LOGI("boot_info", "RAM Free: %u bytes (%u KB)", free_heap, free_heap/1024);
+          ESP_LOGI("boot_info", "Flash Free (Program Space): %u bytes (%u KB)", free_flash, free_flash/1024);
+          ESP_LOGI("boot_info", "------------------------------------");
 
 esp32:
   variant: esp32c3
   framework:
-    type: esp-idf
+    type: arduino
   partitions: partitions.csv
 
 spi:
@@ -19,6 +29,11 @@ spi:
   mosi_pin: GPIO4
 
 logger:
+  hardware_uart: UART0
+  baud_rate: 9600
+  logs:
+    logger: INFO
+    debug: INFO
 
 wifi:
   ssid:  Wokwi-GUEST

@@ -1,0 +1,77 @@
+substitutions:
+  tag: "mohan"
+  gif_file: "admail.c"
+  tft_width: 320
+  tft_height: 240
+
+esphome:
+  name: gifesp32c3lvgl
+  
+  # # 1. Copy the GIF file into the build source directory
+  # includes:
+  #   - ${gif_file}
+
+  # # 2. Add the specific library required by LVGL's GIF decoder
+  # libraries:
+  #   - "bitbank2/AnimatedGIF@^1.4.7"
+
+  # platformio_options:
+  #   # 3. Enable the GIF module in LVGL
+  #   build_flags: 
+  #     - "-DLV_USE_GIF=1"
+  #   # 4. Embed the raw file into the binary flash
+  #   #    (PlatformIO looks in 'src/' because 'includes' put it there)
+  #   #board_build.embed_files: src/${gif_file}
+
+esp32:
+  variant: esp32c3
+  framework:
+    type: esp-idf
+    version: 5.5.1
+    platform_version: https://github.com/swoboda1337/platform-espressif32.git#uv_pip_debug
+
+logger:
+
+spi:
+  clk_pin: GPIO3
+  mosi_pin: GPIO4
+
+display:
+  - platform: mipi_spi
+    model: ILI9341
+    id: mylcd
+    dc_pin: GPIO6
+    cs_pin: GPIO5
+    reset_pin: GPIO7
+    rotation: 0
+    invert_colors: false
+    update_interval: 350ms
+    color_order: bgr
+    dimensions:
+      width: ${tft_width}
+      height: ${tft_height}
+      offset_width: "0"
+    # transform:
+    #   swap_xy: true
+    #   mirror_x: false
+    #   mirror_y: false
+
+lvgl:
+  displays:
+    - mylcd
+
+  pages:
+    - id: button_page
+      widgets:
+        - button:
+            id: mybutton
+            on_press:
+              then:
+                - logger.log: "Button pressed"
+    - id: gif_page
+      widgets:
+        - obj:
+            id: gif_container  # <--- 1. Give the container an ID
+            width: 100%
+            height: 100%
+      
