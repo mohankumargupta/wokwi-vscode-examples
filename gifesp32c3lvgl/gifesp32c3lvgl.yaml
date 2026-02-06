@@ -8,8 +8,8 @@ esphome:
   name: gifesp32c3lvgl
   includes:
     - ${gif_file}
-  libraries:
-    - "bitbank2/AnimatedGIF@^1.4.7"
+  # libraries:
+  #   - "bitbank2/AnimatedGIF@^1.4.7"
 
   platformio_options:
     # 3. Enable the GIF module in LVGL
@@ -113,6 +113,17 @@ lvgl:
                   on_press:
                     then:
                       - logger.log: "Button pressed"
+                      - lambda: |-
+                          extern const lv_img_dsc_t Admail;
+                          //lv_obj_t *gif = lv_gif_create(id(gif_container)->obj);
+                          //lv_gif_set_src(gif, &Admail);
+                          //lv_obj_center(gif);
+
+                          
+                      - lvgl.page.show:
+                          id: gif_page
+                          animation: MOVE_LEFT
+                          time: 500ms
                   widgets:
                     - label:
                         text: "Press me"
