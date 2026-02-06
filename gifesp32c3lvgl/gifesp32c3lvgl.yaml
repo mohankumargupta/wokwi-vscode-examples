@@ -115,9 +115,9 @@ lvgl:
                       - logger.log: "Button pressed"
                       - lambda: |-
                           extern const lv_img_dsc_t Admail;
-                          //lv_obj_t *gif = lv_gif_create(id(gif_container)->obj);
-                          //lv_gif_set_src(gif, &Admail);
-                          //lv_obj_center(gif);
+                          lv_obj_t *gif = lv_gif_create(id(gif_container));
+                          lv_gif_set_src(gif, &Admail);
+                          lv_obj_center(gif);
 
                           
                       - lvgl.page.show:
