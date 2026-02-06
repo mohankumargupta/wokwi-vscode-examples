@@ -6,6 +6,11 @@ substitutions:
 
 esphome:
   name: gifesp32c3lvgl
+  on_boot:
+    priority: 600  # Very early, before WiFi
+    then:
+      - lambda: |-
+          ESP_LOGI("EARLY", "Boot priority 600 - I2C not initialized yet");
   
   # # 1. Copy the GIF file into the build source directory
   # includes:
@@ -32,6 +37,8 @@ esp32:
 
 logger:
   level: DEBUG  # Set global to most verbose you need
+  #baud_rate: 9600
+  hardware_uart: UART0
   # logs:
   #   i2c: DEBUG
   #   ft63x6: DEBUG
