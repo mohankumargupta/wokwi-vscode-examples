@@ -8,17 +8,19 @@ esphome:
   name: gifesp32c3lvgl
   includes:
     - ${gif_file}
-  # libraries:
-  #   - "bitbank2/AnimatedGIF@^1.4.7"
+  on_boot:
+    priority: -100.0
+    then:
+      - lambda: |-
+          uint32_t free_heap = esp_get_free_heap_size();
+          uint32_t min_free = esp_get_minimum_free_heap_size();
+          ESP_LOGI("memory", "--- System Heap ---");
+          ESP_LOGI("memory", "Free Heap: %u bytes", free_heap);
 
   platformio_options:
-    # 3. Enable the GIF module in LVGL
     build_flags: 
       - "-DLV_USE_GIF=1"
       - "-DLV_USE_IMG=1"
-  #   # 4. Embed the raw file into the binary flash
-  #   #    (PlatformIO looks in 'src/' because 'includes' put it there)
-  #   #board_build.embed_files: src/${gif_file}
 
 esp32:
   variant: esp32c3
@@ -122,15 +124,14 @@ lvgl:
                           
                       - lvgl.page.show:
                           id: gif_page
-                          animation: MOVE_LEFT
-                          time: 500ms
+
                   widgets:
                     - label:
                         text: "Press me"
     - id: gif_page
       widgets:
         - obj:
-            id: gif_container  # <--- 1. Give the container an ID
+            id: gif_container
             width: 100%
             height: 100%
       
