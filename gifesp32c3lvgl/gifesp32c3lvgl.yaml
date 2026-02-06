@@ -6,12 +6,7 @@ substitutions:
 
 esphome:
   name: gifesp32c3lvgl
-  on_boot:
-    priority: 600  # Very early, before WiFi
-    then:
-      - lambda: |-
-          ESP_LOGI("EARLY", "Boot priority 600 - I2C not initialized yet");
-  
+
   # # 1. Copy the GIF file into the build source directory
   # includes:
   #   - ${gif_file}
@@ -36,18 +31,19 @@ esp32:
     #platform_version: https://github.com/swoboda1337/platform-espressif32.git#uv_pip_debug
 
 logger:
-  level: DEBUG  # Set global to most verbose you need
-  #baud_rate: 9600
   hardware_uart: UART0
-  # logs:
-  #   i2c: DEBUG
-  #   ft63x6: DEBUG
-  #   touchscreen: DEBUG
-  #   lvgl: WARN      # Raise less important ones
-  #   sensor: INFO
-  #   component: ERROR
-  #   wifi: INFO      # Keep network stuff quiet
-  #   api: INFO
+  logs:
+    logger: NONE
+    spi: NONE
+    spi_device: NONE
+    display.mipi_spi: NONE
+    i2c: NONE
+    i2c.idf: NONE
+    FT63X6: NONE
+    touchscreen: NONE
+    lvgl: NONE     
+    sensor: NONE
+    component: NONE
 
 spi:
   clk_pin: GPIO3
