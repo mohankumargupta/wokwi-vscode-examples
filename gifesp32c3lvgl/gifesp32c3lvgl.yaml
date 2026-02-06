@@ -6,19 +6,16 @@ substitutions:
 
 esphome:
   name: gifesp32c3lvgl
+  includes:
+    - ${gif_file}
+  libraries:
+    - "bitbank2/AnimatedGIF@^1.4.7"
 
-  # # 1. Copy the GIF file into the build source directory
-  # includes:
-  #   - ${gif_file}
-
-  # # 2. Add the specific library required by LVGL's GIF decoder
-  # libraries:
-  #   - "bitbank2/AnimatedGIF@^1.4.7"
-
-  # platformio_options:
-  #   # 3. Enable the GIF module in LVGL
-  #   build_flags: 
-  #     - "-DLV_USE_GIF=1"
+  platformio_options:
+    # 3. Enable the GIF module in LVGL
+    build_flags: 
+      - "-DLV_USE_GIF=1"
+      - "-DLV_USE_IMG=1"
   #   # 4. Embed the raw file into the binary flash
   #   #    (PlatformIO looks in 'src/' because 'includes' put it there)
   #   #board_build.embed_files: src/${gif_file}
