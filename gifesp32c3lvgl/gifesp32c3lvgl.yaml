@@ -32,15 +32,15 @@ esp32:
 
 logger:
   level: DEBUG  # Set global to most verbose you need
-  logs:
-    i2c: DEBUG
-    ft63x6: DEBUG
-    touchscreen: DEBUG
-    lvgl: WARN      # Raise less important ones
-    sensor: INFO
-    component: ERROR
-    wifi: INFO      # Keep network stuff quiet
-    api: INFO
+  # logs:
+  #   i2c: DEBUG
+  #   ft63x6: DEBUG
+  #   touchscreen: DEBUG
+  #   lvgl: WARN      # Raise less important ones
+  #   sensor: INFO
+  #   component: ERROR
+  #   wifi: INFO      # Keep network stuff quiet
+  #   api: INFO
 
 spi:
   clk_pin: GPIO3
