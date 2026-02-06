@@ -4,7 +4,7 @@
   "editor": "wokwi",
   "parts": [
     { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": -9.9, "left": -128.58, "attrs": {} },
-    { "type": "wokwi-ili9341", "id": "lcd1", "top": -85.6, "left": 9.3, "attrs": {} }
+    { "type": "board-ili9341-cap-touch", "id": "lcd1", "top": -85.6, "left": 9.3, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -16,7 +16,14 @@
     [ "lcd1:D/C", "esp:6", "magenta", [ "v57.6", "h-96", "v-172.8" ] ],
     [ "esp:4", "lcd1:MOSI", "orange", [ "v0", "h8.32", "v163.2", "h144" ] ],
     [ "lcd1:SCK", "esp:3", "yellow", [ "v86.4", "h-124.81", "v0", "h-134.4", "v-240" ] ],
-    [ "lcd1:LED", "lcd1:VCC", "red", [ "v-19.2", "h-67.21" ] ]
+    [ "lcd1:LED", "lcd1:VCC", "red", [ "v-19.2", "h-67.21" ] ],
+    [
+      "lcd1:SDA",
+      "esp:8",
+      "green",
+      [ "v19.16", "h67.12", "v-278.4", "h0", "v-57.6", "h-211.2", "v172.8" ]
+    ],
+    [ "lcd1:SCL", "esp:9", "yellow", [ "v38.36", "h86.32", "v-364.8", "h-230.4", "v163.2" ] ]
   ],
   "dependencies": {}
 }
