@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "author": "Sittinon",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-xiao-esp32-c3",
+      "id": "esp",
+      "top": 26.63,
+      "left": 119.82,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "board-ili9341-cap-touch",
+      "id": "lcd1",
+      "top": -32.52,
+      "left": -199.94,
+      "rotate": 270,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:D5", "lcd1:SCL", "orange", [ "h28.8", "v-86.4" ] ],
+    [ "esp:D4", "lcd1:SDA", "gold", [ "h19.2", "v-192" ] ],
+    [ "lcd1:D/C", "esp:D0", "#aaa", [ "h38.4", "v-96", "h163.2", "v182.4" ] ],
+    [ "lcd1:CS", "esp:D1", "gray", [ "h28.8", "v-86.4", "h163.2", "v144" ] ],
+    [ "lcd1:MOSI", "esp:D10", "violet", [ "h67.2", "v67.2" ] ],
+    [ "lcd1:MISO", "esp:D9", "magenta", [ "h86.4", "v86.4" ] ],
+    [ "lcd1:SCK", "esp:D8", "purple", [ "h76.8", "v57.6" ] ]
+  ],
+  "dependencies": {}
+}

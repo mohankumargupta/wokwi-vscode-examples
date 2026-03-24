@@ -1,0 +1,13 @@
+set shell := ["sh", "-c"]
+set windows-shell := ["powershell", "-c"]
+
+compile:
+    uvx --python 3.12 --with=pip esphome compile gifesp32c3lvgllittlefs.yaml
+
+copy:
+	@python copy.py
+
+merge_bin:
+    uvx --python 3.12 --with=pip esptool
+
+

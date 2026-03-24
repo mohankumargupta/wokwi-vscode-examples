@@ -1,0 +1,58 @@
+substitutions:
+  tag: "mohan"
+  tft_width: 320
+  tft_height: 240
+
+esphome:
+  name: gifesp32c3lvgllittlefs
+  on_boot:
+    priority: -100.0
+    then:
+      - lambda: |-
+          esp_rom_printf("\x1b[20h"); //for wokwi to print nicely
+          esp_rom_printf("mohan\r\n");
+          uint32_t free_heap = esp_get_free_heap_size();
+          uint32_t min_free = esp_get_minimum_free_heap_size();
+          ESP_LOGI("memory", "--- System Heap ---");
+          ESP_LOGI("memory", "Free Heap: %u bytes", free_heap);
+
+esp32:
+  board: seeed_xiao_esp32c3
+  variant: esp32c3
+  framework:
+    type: esp-idf
+
+logger:
+  hardware_uart: USB_SERIAL_JTAG
+  logs:
+    logger: info
+
+spi:
+  id: tft_bus
+  clk_pin: GPIO8    # D8
+  mosi_pin: GPIO10  # D10
+  miso_pin: GPIO9   # D9
+
+display:
+  - platform: mipi_spi
+    id: my_display
+    spi_id: tft_bus
+    model: ILI9341
+    dimensions:
+      width: 320
+      height: 240
+    # Rotation 90 or 270 makes it horizontal (landscape)
+    rotation: 270 
+    cs_pin: GPIO3   # D1
+    dc_pin: GPIO2   # D0
+    # reset_pin: GPIOXX # Not connected in your diagram
+    
+    lambda: |-
+      // Draw a small blue rectangle to test
+      it.filled_rectangle(10, 10, 20, 30, id(my_blue));
+
+color:
+  - id: my_blue
+    red: 0%
+    green: 0%
+    blue: 100%

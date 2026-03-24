@@ -104,7 +104,7 @@ lvgl:
     - id: main_page
       widgets:
         - obj:
-            align: TOP_MID
+            align: TOP_LEFT
             layout:
               type: flex
               flex_flow: column
