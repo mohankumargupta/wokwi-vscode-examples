@@ -3,6 +3,8 @@ set windows-shell := ["powershell", "-c"]
 
 compile: compile_only merge_bin
 
+compile_mega: compile_only littlefs merge_bin
+
 compile_only:
     uvx --python 3.12 --with=pip esphome compile gifesp32c3lvgllittlefs.yaml
 

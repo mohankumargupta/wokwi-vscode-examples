@@ -4,3 +4,5 @@
 /.esphome/
 /secrets.yaml
 final.bin
+littlefs.bin
+gifesp32c3lvgllittlefs/littlefs.bin
