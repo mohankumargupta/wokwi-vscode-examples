@@ -5,6 +5,10 @@
 #include "dirent.h"
 #include "cstring"
 
+#define LV_USE_FS_STDIO 1
+#define LV_FS_STDIO_LETTER 'A'
+#define LV_FS_STDIO_PATH "/littlefs"
+
 // Helper function to list files recursively
 void list_files(const char *path, int depth = 0) {
     DIR *dir = opendir(path);
