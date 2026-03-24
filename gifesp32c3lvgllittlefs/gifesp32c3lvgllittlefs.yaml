@@ -111,8 +111,8 @@ color:
     blue: 100%
 
 i2c:
-  sda: GPIO4
-  scl: GPIO5
+  sda: GPIO6  # maps to D4
+  scl: GPIO7  # maps to D5
   scan: true
   id: bus_a
 
@@ -126,9 +126,9 @@ touchscreen:
       y_min: 0
       y_max: 320
     transform:
-      swap_xy: false
+      swap_xy: true
       mirror_x: true
-      mirror_y: true      
+      mirror_y: false     
     on_touch:
       - lambda: |-
             ESP_LOGI("cal", "x=%d, y=%d, x_raw=%d, y_raw=%0d",
