@@ -13,9 +13,9 @@ esphome:
       - "-DLV_USE_GIF=1"
       - "-DLV_USE_IMG=1"
       # Enable LVGL filesystem support and map it to our path
-      # - "-DLV_USE_FS_STDIO=1"
-      # - "-DLV_FS_STDIO_LETTER=A"       # Map drive letter 'A' 
-      # - "-DLV_FS_STDIO_PATH=/littlefs" # Map 'A' to /littlefs  
+      - "-DLV_USE_FS_STDIO=1"
+      - "-DLV_FS_STDIO_LETTER=65"       # Map drive letter 'A' 
+      - "-DLV_FS_STDIO_PATH=\\\"/littlefs\\\"" # Map 'A' to /littlefs  
   on_boot:
     priority: 600.0
     then:
