@@ -13,7 +13,7 @@ esphome:
           esp_rom_printf("mohan\r\n");
           uint32_t free_heap = esp_get_free_heap_size();
           uint32_t min_free = esp_get_minimum_free_heap_size();
-          ESP_LOGI("memory", "--- System Heap ---");
+          ESP_LOGI("memory", "---- System Heap ----");
           ESP_LOGI("memory", "Free Heap: %u bytes", free_heap);
 
 esp32:
@@ -21,6 +21,16 @@ esp32:
   variant: esp32c3
   framework:
     type: esp-idf
+    components: 
+      # Add the version operator and version number here (e.g., >=1.0.0 or ^1.20.4)
+      - "joltwallet/littlefs>1.0.0" 
+    advanced: 
+      disable_vfs_support_dir: false
+      include_builtin_idf_components: ["spiffs"]
+  partitions: partitions.csv
+  
+
+debug:
 
 logger:
   hardware_uart: USB_SERIAL_JTAG

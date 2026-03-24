@@ -4,10 +4,10 @@ set windows-shell := ["powershell", "-c"]
 compile:
     uvx --python 3.12 --with=pip esphome compile gifesp32c3lvgllittlefs.yaml
 
-copy:
-	@python copy.py
+littlefs:
+    mklittlefs -c data -p 256 -b 4096 -s 2031616 littlefs.bin
 
 merge_bin:
-    uvx --python 3.12 --with=pip esptool
+    uvx --python 3.12 --with=pip esptool --chip esp32c3 merge-bin -o final.bin 0x00 .esphome/build/gifesp32c3lvgllittlefs/.pioenvs/gifesp32c3lvgllittlefs/firmware.factory.bin 0x210000 littlefs.bin 
 
 
