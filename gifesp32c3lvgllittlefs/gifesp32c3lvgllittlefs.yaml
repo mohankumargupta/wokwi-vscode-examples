@@ -5,6 +5,8 @@ substitutions:
 
 esphome:
   name: gifesp32c3lvgllittlefs
+  includes:
+    - littlefs_import.h
   on_boot:
     priority: -100.0
     then:
@@ -15,6 +17,35 @@ esphome:
           uint32_t min_free = esp_get_minimum_free_heap_size();
           ESP_LOGI("memory", "---- System Heap ----");
           ESP_LOGI("memory", "Free Heap: %u bytes", free_heap);
+
+          // --- LittleFS Mounting Logic ---
+          // Initialize config struct
+          esp_vfs_littlefs_conf_t conf = {};
+          conf.base_path = "/littlefs";
+          conf.partition_label = "spiffs";
+          conf.format_if_mount_failed = false; // Formats if empty
+          conf.dont_mount = false;
+
+          // Register the filesystem
+          esp_err_t ret = esp_vfs_littlefs_register(&conf);
+          
+          if (ret != ESP_OK) {
+            ESP_LOGE("littlefs", "Failed to mount LittleFS (%s)", esp_err_to_name(ret));
+          } else {
+            ESP_LOGI("littlefs", "LittleFS mounted successfully at /littlefs");
+            
+            // --- LIST ALL FILES ---
+            ESP_LOGI("fs", "---- Listing Files ----");
+            list_files("/littlefs"); // Call the function from the header
+            ESP_LOGI("fs", "---- End of List ----");
+
+            // Optional: Print file system info
+            size_t total = 0, used = 0;
+            esp_littlefs_info(conf.partition_label, &total, &used);
+            ESP_LOGI("littlefs", "Total: %u bytes, Used: %u bytes", total, used);
+
+
+          }          
 
 esp32:
   board: seeed_xiao_esp32c3
