@@ -1,0 +1,7 @@
+[wokwi]
+version = 1
+firmware = '.esphome/build/clockalarm/.pioenvs/clockalarm/firmware.bin'
+elf = '.esphome/build/clockalarm/.pioenvs/clockalarm/firmware.elf'
+
+# wifi SSID is Wokwi-GUEST
+# https://docs.wokwi.com/guides/esp32-wifi

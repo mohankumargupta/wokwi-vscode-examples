@@ -3,7 +3,3 @@
 # You can modify this file to suit your needs.
 /.esphome/
 /secrets.yaml
-final.bin
-littlefs.bin
-gifesp32c3lvgllittlefs/littlefs.bin
-__pycache__

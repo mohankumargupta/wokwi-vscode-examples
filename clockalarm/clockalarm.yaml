@@ -1,0 +1,120 @@
+substitutions:
+  tft_width: 284
+  tft_height: 76
+  # tft_width: 320
+  # tft_height: 240
+
+esphome:
+  name: clockalarm
+  includes:
+    - clockalarm.h
+
+esp32:
+  board: esp32-s3-devkitm-1
+  framework:
+    type: esp-idf
+
+psram:
+  mode: quad
+  speed: 120MHz
+
+logger:
+  hardware_uart: UART0
+
+wifi:
+  ssid: "Wokwi-GUEST"
+
+interval:
+  - interval: 30s
+    then:
+      - if:
+          condition:
+            wifi.connected
+          then:
+            - logger.log: "WiFi is connected!"
+          else:
+            - logger.log: "WiFi is disconnected!"
+
+api:
+
+spi:
+  clk_pin: GPIO14
+  mosi_pin: GPIO13
+
+font:
+  - file: "digital-7.ttf"
+    id: digital7font
+    size: 48
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: "UTC"
+
+text_sensor:
+  - platform: template
+    id: melbourne_clock
+    update_interval: 15s
+    on_value: 
+      then:
+        - lvgl.label.update:
+             id: maintime
+             text:
+               format: "%s"
+               args: [ 'x.c_str()' ]    
+    lambda: |-
+      auto now = id(sntp_time).now();
+      if (!now.is_valid()) return {"--:--"};
+
+      return {
+        format_timezone_time(
+          now.timestamp,
+          "AEST-10AEDT,M10.1.0/2,M4.1.0/3"
+        )
+      };
+
+display:
+  - platform: mipi_spi
+    model: ILI9341
+    id: mylcd
+    dc_pin: GPIO2
+    #reset_pin: 0
+    cs_pin: GPIO15
+    rotation: 0
+    invert_colors: false
+    update_interval: never
+    #color_depth: 8
+    #show_test_card: true
+    color_order: bgr
+    dimensions:
+      width: ${tft_width}
+      height: ${tft_height}
+      offset_width: "0"
+      offset_height: "30"
+    transform:
+      swap_xy: true
+      mirror_x: false
+      mirror_y: false
+
+lvgl:
+  buffer_size: 25%
+  bg_color: black
+  text_color: white
+  pages:
+    - id: main_page
+      widgets:
+        - obj:
+            width: 100%
+            height: 100%
+            align: CENTER
+            bg_opa: TRANSP
+            border_width: 1
+            border_color: white
+            radius: 0
+        - label:
+            id: maintime
+            text: "--:--"
+            align: CENTER
+            text_font: digital7font
+
+ 

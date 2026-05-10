@@ -1,0 +1,10 @@
+set shell := ["sh", "-c"]
+set windows-shell := ["powershell", "-c"]
+
+compile:
+    esphome compile clockalarm.yaml
+
+copy:
+	@python copy.py
+
+
