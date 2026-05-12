@@ -7,11 +7,8 @@ compile:
 copy:
 	@python copy.py
 
-zigexe:
-    zig build-exe chip.zig -target wasm32-wasi -rdynamic --export=chipInit -fno-entry --export-table  -O ReleaseSmall 
-
-ziglib:
-    zig build-lib chip.zig -target wasm32-wasi -fno-entry --export-table -O ReleaseSmall -femit-bin
+zig:
+    zig build
 
 wat:
     wasm2wat chip.wasm

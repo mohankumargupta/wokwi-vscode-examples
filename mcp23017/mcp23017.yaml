@@ -1,5 +1,5 @@
 esphome:
-  name: esp32c3-hello-world
+  name: mcp23017
 
 esp32:
   board: esp32-c3-devkitm-1

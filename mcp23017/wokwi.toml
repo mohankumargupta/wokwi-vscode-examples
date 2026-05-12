@@ -5,3 +5,7 @@ elf = '.esphome/build/mcp23017/.pioenvs/mcp23017/firmware.elf'
 
 # wifi SSID is Wokwi-GUEST
 # https://docs.wokwi.com/guides/esp32-wifi
+
+[[chip]]
+name = "mcp23017"
+binary = "dist/chip.wasm"

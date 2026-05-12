@@ -3,7 +3,7 @@
   "author": "Raspberry Pi",
   "editor": "wokwi",
   "parts": [
-    { "type": "chip-chip", "id": "chip1", "top": -94.98, "left": 292.8, "attrs": {} },
+    { "type": "chip-mcp23017", "id": "chip1", "top": -94.98, "left": 292.8, "attrs": {} },
     { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": -0.3, "left": -99.78, "attrs": {} },
     { "type": "wokwi-led", "id": "led1", "top": 6, "left": 147.8, "attrs": { "color": "red" } }
   ],
