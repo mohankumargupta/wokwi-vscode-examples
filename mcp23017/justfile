@@ -1,0 +1,18 @@
+set shell := ["sh", "-c"]
+set windows-shell := ["powershell", "-c"]
+
+compile:
+    esphome compile mcp23017.yaml
+
+copy:
+	@python copy.py
+
+zigexe:
+    zig build-exe chip.zig -target wasm32-wasi -rdynamic --export=chipInit -fno-entry --export-table  -O ReleaseSmall 
+
+ziglib:
+    zig build-lib chip.zig -target wasm32-wasi -fno-entry --export-table -O ReleaseSmall -femit-bin
+
+wat:
+    wasm2wat chip.wasm
+
