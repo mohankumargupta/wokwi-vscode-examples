@@ -1,10 +1,34 @@
 {
   "name": "mcp23017",
-  "author": "Uri Shaked",
+  "author": "Mohan Gupta",
   "pins": [
-    "OUT",
-    "IN",
-    "VCC",
-    "GND"
-  ]
+      "GPB0",
+      "GPB1",
+      "GPB2",
+      "GPB3",
+      "GPB4",
+      "GPB5",
+      "GPB6",
+      "GPB7",
+      "VDD",
+      "GND",
+      "",
+      "SCL",
+      "SDA",
+      "A0",
+      "A1",
+      "A2",
+      "RESET",
+      "INTA",
+      "INTB",
+      "GPA0",
+      "GPA1",
+      "GPA2",
+      "GPA3",
+      "GPA4",
+      "GPA5",
+      "GPA6",
+      "GPA7",
+      ""
+    ]
 }
