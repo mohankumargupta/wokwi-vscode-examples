@@ -1,5 +1,10 @@
 esphome:
   name: mcp23017
+  on_boot:
+    priority: -100
+    then:
+      - delay: 5s # Allows components to fully stabilize
+      - switch.turn_on: led_switch
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -8,3 +13,28 @@ esp32:
     type: esp-idf
 
 logger:
+  hardware_uart: UART0
+
+# 1. Configure the I2C Bus using the pins from diagram.json
+i2c:
+  sda: 8
+  scl: 9
+  scan: true
+  id: bus_a
+
+# 2. Register the MCP23017 Hub
+mcp23017:
+  - id: 'mcp23017_hub'
+    address: 0x20
+
+# 3. Create a Switch to control the LED on GPA0
+switch:
+  - platform: gpio
+    id: led_switch
+    name: "MCP23017 LED"
+    pin:
+      mcp23xxx: mcp23017_hub
+      number: 0 # GPA0 is 0
+      mode: output
+
+
