@@ -7,4 +7,6 @@ compile:
 copy:
 	@python copyfirmware.py
 
+merge project="helloworld2026_may":
+    esptool --chip esp32c3 merge-bin -o .\firmware\merged.bin --flash-mode dio --flash-size 4MB 0x0000 .\.esphome\build\helloworld\.pioenvs\helloworld\bootloader.bin 0x8000 .\.esphome\build\helloworld\.pioenvs\helloworld\partitions.bin 0x10000 .\.esphome\build\helloworld\.pioenvs\helloworld\firmware.bin
 
