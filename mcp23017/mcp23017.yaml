@@ -1,10 +1,10 @@
 esphome:
   name: mcp23017
-  on_boot:
-    priority: -100
-    then:
-      - delay: 5s # Allows components to fully stabilize
-      - switch.turn_on: led_switch
+  # on_boot:
+  #   priority: -100
+  #   then:
+  #     - delay: 5s 
+  #     - switch.turn_on: led_switch
 
 esp32:
   #board: esp32-c3-devkitm-1
@@ -16,10 +16,9 @@ esp32:
 # logger:
 #   hardware_uart: UART0
 
-# 1. Configure the I2C Bus using the pins from diagram.json
 i2c:
-  sda: 8
-  scl: 9
+  sda: GPIO8
+  scl: GPIO9
   scan: true
   id: bus_a
 
@@ -27,15 +26,28 @@ i2c:
 mcp23017:
   - id: 'mcp23017_hub'
     address: 0x20
+    interrupt_pin: GPIO7
 
-# 3. Create a Switch to control the LED on GPA0
+#Create a Switch to control the LED on GPA0
 switch:
   - platform: gpio
     id: led_switch
     name: "MCP23017 LED"
     pin:
       mcp23xxx: mcp23017_hub
-      number: 0 # GPA0 is 0
+      number: 0 # Pin 0 on MCP23017 is GPA0
       mode: output
 
-
+# button on GPA1
+binary_sensor:
+  - platform: gpio
+    name: "MCP23017 Input Button B0"
+    pin:
+      mcp23xxx: mcp23017_hub
+      number: 8        # Pin 8 on MCP23017 is B0
+      inverted: true           
+      mode:
+        input: true     
+        pullup: true     
+    on_press:
+    - switch.turn_on: led_switch

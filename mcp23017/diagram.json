@@ -3,23 +3,28 @@
   "author": "Raspberry Pi",
   "editor": "wokwi",
   "parts": [
-    { "type": "chip-mcp23017", "id": "chip1", "top": -94.98, "left": 292.8, "attrs": {
-    } },
-    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": -0.3, "left": -99.78, "attrs": {
-      
-    } },
-    { "type": "wokwi-led", "id": "led1", "top": 6, "left": 147.8, "attrs": { "color": "red" } }
+    { "type": "chip-mcp23017", "id": "chip1", "top": -94.98, "left": 292.8, "attrs": {} },
+    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": -0.3, "left": -99.78, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 6, "left": 147.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -41.8,
+      "left": 28.8,
+      "attrs": { "color": "green", "xray": "1" }
+    }
   ],
-  "connections": [ 
-    [ "esp:TX", "$serialMonitor:RX", "", [] ], 
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
     [ "chip1:GPA0", "led1:A", "red", [] ],
     [ "esp:GND.4", "led1:C", "black", [] ],
     [ "esp:8", "chip1:SDA", "blue", [] ],
-    [ "esp:9", "chip1:SCL", "yellow", [] ]  
+    [ "esp:9", "chip1:SCL", "yellow", [] ],
+    [ "esp:GND.10", "btn1:2.l", "black", [ "h-1.28", "v-28.8" ] ],
+    [ "btn1:1.r", "chip1:GPB0", "green", [ "v0" ] ],
+    [ "chip1:INTB", "esp:7", "cyan", [ "h40.21", "v86.4" ] ]
   ],
-    
-  "dependencies": {
-    "chip-mcp23017": "github:mohankumargupta/wokwi-mcp23017@0.0.1"
-  }
+  "dependencies": { "chip-mcp23017": "github:mohankumargupta/wokwi-mcp23017@0.0.1" }
 }
+
