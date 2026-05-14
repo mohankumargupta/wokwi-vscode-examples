@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "author": "Raspberry Pi",
+  "author": "Raspberry PI",
   "editor": "wokwi",
   "parts": [
     { "type": "chip-mcp23017", "id": "chip1", "top": -94.98, "left": 292.8, "attrs": {} },
