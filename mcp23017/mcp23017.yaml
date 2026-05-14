@@ -7,13 +7,14 @@ esphome:
       - switch.turn_on: led_switch
 
 esp32:
-  board: esp32-c3-devkitm-1
+  #board: esp32-c3-devkitm-1
   variant: esp32c3
   framework:
     type: esp-idf
+  partitions: partitions.csv
 
-logger:
-  hardware_uart: UART0
+# logger:
+#   hardware_uart: UART0
 
 # 1. Configure the I2C Bus using the pins from diagram.json
 i2c:

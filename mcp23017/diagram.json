@@ -16,5 +16,7 @@
     [ "esp:9", "chip1:SCL", "yellow", [] ]  
   ],
     
-  "dependencies": {}
+  "dependencies": {
+    "chip-mcp23017": "github:mohankumargupta/wokwi-mcp23017@0.0.1"
+  }
 }
