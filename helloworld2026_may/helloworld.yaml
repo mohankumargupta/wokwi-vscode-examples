@@ -13,11 +13,11 @@ esphome:
         - output.turn_on: red_led
 
 esp32:
-  variant: esp32c3
+  #variant: esp32c3
+  board: esp32-c3-devkitm-1
   framework:
     type: arduino
-  partitions: partitions.csv
-
+  
 logger:
   hardware_uart: UART0
   level: INFO

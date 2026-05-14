@@ -28,8 +28,5 @@
     [ "r1:2", "esp:4", "purple", [ "h-28.15", "v-34.6" ] ],
     [ "led-red:C", "esp:GND.10", "black", [ "v19.2", "h28.4", "v-9.6" ] ]
   ],
-  "serialMonitor": {
-  "display": "always"
-},
   "dependencies": {}
 }
