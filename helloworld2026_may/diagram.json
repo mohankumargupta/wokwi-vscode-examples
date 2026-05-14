@@ -21,12 +21,15 @@
     }
   ],
   "connections": [
-    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
-    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
     [ "led-red:A", "r1:1", "green", [ "h-9.6", "v19.2" ] ],
     [ "r1:2", "esp:D2", "green", [ "h0", "v8.4" ] ],
     [ "r1:2", "esp:4", "purple", [ "h-28.15", "v-34.6" ] ],
     [ "led-red:C", "esp:GND.10", "black", [ "v19.2", "h28.4", "v-9.6" ] ]
   ],
+  "serialMonitor": {
+  "display": "always"
+},
   "dependencies": {}
 }

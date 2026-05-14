@@ -13,6 +13,7 @@ esphome:
         - output.turn_on: red_led
 
 logger:
+  hardware_uart: UART0
   level: INFO
   logs:
     logger: NONE
