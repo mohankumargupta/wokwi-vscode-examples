@@ -12,6 +12,12 @@ esphome:
             tag: ${tag}
         - output.turn_on: red_led
 
+esp32:
+  variant: esp32c3
+  framework:
+    type: esp-idf
+  partitions: partitions.csv
+
 logger:
   hardware_uart: UART0
   level: INFO
@@ -20,10 +26,6 @@ logger:
     app: NONE
     component: NONE
     
-esp32:
-  variant: esp32c3
-  framework:
-    type: arduino
 
 output:
   - platform: gpio
