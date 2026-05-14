@@ -9,9 +9,16 @@
     {
       "type": "wokwi-pushbutton",
       "id": "btn1",
-      "top": -41.8,
-      "left": 28.8,
+      "top": -89.8,
+      "left": 19.2,
       "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -22.6,
+      "left": 28.8,
+      "attrs": { "color": "grey", "xray": "1" }
     }
   ],
   "connections": [
@@ -23,8 +30,9 @@
     [ "esp:9", "chip1:SCL", "yellow", [] ],
     [ "esp:GND.10", "btn1:2.l", "black", [ "h-1.28", "v-28.8" ] ],
     [ "btn1:1.r", "chip1:GPB0", "green", [ "v0" ] ],
-    [ "chip1:INTB", "esp:7", "cyan", [ "h40.21", "v86.4" ] ]
+    [ "chip1:INTB", "esp:7", "cyan", [ "h40.21", "v86.4" ] ],
+    [ "btn2:2.l", "esp:GND.10", "black", [ "h-19.2", "v9.8" ] ],
+    [ "btn2:1.r", "chip1:GPB2", "green", [ "v0" ] ]
   ],
   "dependencies": { "chip-mcp23017": "github:mohankumargupta/wokwi-mcp23017@0.0.1" }
 }
-

@@ -51,3 +51,14 @@ binary_sensor:
         pullup: true     
     on_press:
     - switch.turn_on: led_switch
+  - platform: gpio
+    name: "MCP23017 Input Button B2"
+    pin:
+      mcp23xxx: mcp23017_hub
+      number: 10  # Pin 10 on MCP23017 is B2
+      mode:
+        input: true     
+        pullup: true         
+      inverted: true
+    on_press:
+      - switch.turn_off: led_switch
