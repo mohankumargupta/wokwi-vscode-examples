@@ -1,0 +1,30 @@
+substitutions:
+  tag: mohan
+
+esphome:
+  name: helloworld
+  on_boot:
+    - priority: -100
+      then:
+        - logger.log:
+            format: "Hello ESP32!"
+            level: INFO
+            tag: ${tag}
+        - output.turn_on: red_led
+
+logger:
+  level: INFO
+  logs:
+    logger: NONE
+    app: NONE
+    component: NONE
+    
+esp32:
+  variant: esp32c3
+  framework:
+    type: arduino
+
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: red_led

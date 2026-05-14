@@ -5,7 +5,7 @@ compile:
     esphome compile mcp23017.yaml
 
 copy:
-	@python copy.py
+	@python copyfirmware.py
 
 zig:
     zig build

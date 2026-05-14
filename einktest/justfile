@@ -5,4 +5,4 @@ compile:
     uvx --with=pip esphome compile einktest.yaml
 
 copy: 
-	@python copy.py
+	@python copyfirmware.py

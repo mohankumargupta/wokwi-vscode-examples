@@ -5,5 +5,5 @@ compile:
     uvx --with=pip esphome compile ili9341.yaml
 
 copy:
-	@python copy.py
+	@python copyfirmware.py
 

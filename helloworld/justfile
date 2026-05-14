@@ -5,6 +5,6 @@ compile:
     uvx --with=pip esphome compile helloworld.yaml
 
 copy:
-	@python copy.py
+	@python copyfirmware.py
 
 

@@ -5,6 +5,6 @@ compile:
     esphome compile clockalarm.yaml
 
 copy:
-	@python copy.py
+	@python copyfirmware.py
 
 
