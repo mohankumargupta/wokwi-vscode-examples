@@ -4,6 +4,12 @@ substitutions:
   # tft_width: 320
   # tft_height: 240
 
+globals:
+  - id: current_clock_mode
+    type: int
+    restore_value: no
+    initial_value: '0' # 0=Melbourne 1=UTC 2=IST
+
 esphome:
   name: clockalarm
   includes:
@@ -28,7 +34,11 @@ logger:
 
 wifi:
   ssid: "Wokwi-GUEST"
-
+  on_connect:
+    then:
+      - logger.log: "WiFi connected, synchronizing SNTP..."
+      - component.update: sntp_time
+        
 i2c:
   sda: GPIO8
   scl: GPIO9
@@ -61,6 +71,10 @@ time:
   - platform: sntp
     id: sntp_time
     timezone: "UTC"
+    on_time_sync:
+      then:
+        - logger.log: "SNTP time synchronized"
+        - component.update: melbourne_clock
 
 mcp23017:
   - id: 'mcp23017_hub'
@@ -79,6 +93,17 @@ binary_sensor:
         pullup: true     
     on_press:
     - logger.log: "Button 1 pressed"
+    - logger.log: "Showing UTC time"
+    - lvgl.label.update:
+        id: maintime
+        text: !lambda |-
+          return id(utc_clock).state;
+    - delay: 5s
+    - logger.log: "Showing Melbourne time"
+    - lvgl.label.update:
+        id: maintime
+        text: !lambda |-
+          return id(melbourne_clock).state;    
   - platform: gpio
     name: "MCP23017 Input Button B1"
     pin:
@@ -134,6 +159,36 @@ text_sensor:
           "AEST-10AEDT,M10.1.0/2,M4.1.0/3"
         )
       };
+  - platform: template
+    id: utc_clock
+    name: "UTC Clock"
+    update_interval: 15s
+    lambda: |-
+      auto now = id(sntp_time).now();
+      if (!now.is_valid()) return {"--:--"};
+
+      return {
+        format_timezone_time(
+          now.timestamp,
+          "UTC0"
+        )
+      };
+
+  - platform: template
+    id: india_clock
+    name: "India Standard Time"
+    update_interval: 15s
+    lambda: |-
+      auto now = id(sntp_time).now();
+      if (!now.is_valid()) return {"--:--"};
+
+      return {
+        format_timezone_time(
+          now.timestamp,
+          "IST-5:30"
+        )
+      };
+
 
 display:
   - platform: mipi_spi
