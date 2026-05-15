@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "author": "technetium",
+  "author": "Mohan Gupta",
   "editor": "wokwi",
   "parts": [
     {
@@ -9,11 +9,7 @@
       "top": -137.53,
       "left": 88.48,
       "rotate": 90,
-      "attrs": {
-        "flashSize": "4",
-        "psRamSize": "4",
-        "psramType": "quad"
-      }
+      "attrs": { "flashSize": "4", "psRamSize": "4", "psramType": "quad" }
     },
     {
       "type": "board-ili9341-cap-touch",
@@ -21,12 +17,44 @@
       "top": 65.92,
       "left": 446.34,
       "rotate": 90,
-      "attrs": {
-         "swapXY": "0",
-         "flipHorizontal": "0",
-         "flipvertical": "0"
-      }
-    }
+      "attrs": { "swapXY": "0", "flipHorizontal": "0", "flipvertical": "0" }
+    },
+    { 
+      "type": "chip-mcp23017", 
+      "id": "chip1", 
+      "top": -181.38, 
+      "left": 571.2, 
+      "attrs": {} 
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -51.4,
+      "left": 374.4,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 15.8,
+      "left": 374.4,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": -185.8,
+      "left": 374.4,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": -118.6,
+      "left": 374.4,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-junction", "id": "j1", "top": 43.2, "left": 312, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -39,7 +67,21 @@
     [ "lcd1:MOSI", "esp:13", "green", [ "h-470.4", "v-297.6", "h144" ] ],
     [ "lcd1:SCK", "esp:14", "green", [ "h0" ] ],
     [ "lcd1:LED", "esp:21", "green", [ "h0" ] ],
-    [ "lcd1:MISO", "esp:12", "green", [ "h-489.6", "v-336", "h172.8" ] ]
+    [ "lcd1:MISO", "esp:12", "green", [ "h-489.6", "v-336", "h172.8" ] ],
+    [ "esp:GND.2", "btn2:2.l", "black", [ "v0" ] ],
+    [ "btn1:2.l", "j1:J", "black", [ "h-57.6", "v0.2" ] ],
+    [ "btn4:2.l", "j1:J", "black", [ "h-57.6", "v0.2" ] ],
+    [ "btn3:2.l", "j1:J", "black", [ "h-57.6", "v0.2" ] ],
+    [ "btn3:1.r", "chip1:GPB0", "green", [ "v0" ] ],
+    [ "btn4:1.r", "chip1:GPB1", "green", [ "v0" ] ],
+    [ "btn1:1.r", "chip1:GPB2", "green", [ "v0", "h19.4", "v-115.2" ] ],
+    [ "btn2:1.r", "chip1:GPB3", "green", [ "v0", "h38.6", "v-163.2" ] ],
+    [ "esp:9", "chip1:SCL", "yellow", [ "v-153.65", "h441.6", "v144" ] ],
+    [ "esp:8", "chip1:SDA", "blue", [ "v-172.85", "h393.6", "v163.2" ] ],
+    [ "chip1:INTB", "esp:7", "violet", [ "h30.61", "v-105.6", "h-528" ] ]
   ],
-  "dependencies": {}
+  "dependencies": {
+     "chip-mcp23017": "github:mohankumargupta/wokwi-mcp23017@0.0.1"
+  }
 }
+

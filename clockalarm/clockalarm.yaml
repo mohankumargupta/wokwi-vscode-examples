@@ -20,22 +20,32 @@ psram:
 
 logger:
   hardware_uart: UART0
+  logs:
+    log: NONE
+    component: NONE
+
 
 wifi:
   ssid: "Wokwi-GUEST"
 
-interval:
-  - interval: 30s
-    then:
-      - if:
-          condition:
-            wifi.connected
-          then:
-            - logger.log: "WiFi is connected!"
-          else:
-            - logger.log: "WiFi is disconnected!"
+i2c:
+  sda: GPIO8
+  scl: GPIO9
+  scan: true
+  id: bus_a
 
-api:
+# interval:
+#   - interval: 30s
+#     then:
+#       - if:
+#           condition:
+#             wifi.connected
+#           then:
+#             - logger.log: "WiFi is connected!"
+#           else:
+#             - logger.log: "WiFi is disconnected!"
+
+# api:
 
 spi:
   clk_pin: GPIO14
@@ -50,6 +60,57 @@ time:
   - platform: sntp
     id: sntp_time
     timezone: "UTC"
+
+mcp23017:
+  - id: 'mcp23017_hub'
+    address: 0x20
+    interrupt_pin: GPIO7
+
+binary_sensor:
+  - platform: gpio
+    name: "MCP23017 Input Button B0"
+    pin:
+      mcp23xxx: mcp23017_hub
+      number: 8        # Pin 8 on MCP23017 is B0
+      inverted: true           
+      mode:
+        input: true     
+        pullup: true     
+    on_press:
+    - logger.log: "Button 1 pressed"
+  - platform: gpio
+    name: "MCP23017 Input Button B1"
+    pin:
+      mcp23xxx: mcp23017_hub
+      number: 9  # Pin 9 on MCP23017 is B1
+      mode:
+        input: true     
+        pullup: true         
+      inverted: true
+    on_press:
+      - logger.log: "Button 2 pressed"
+  - platform: gpio
+    name: "MCP23017 Input Button B2"
+    pin:
+      mcp23xxx: mcp23017_hub
+      number: 10        # Pin 10 on MCP23017 is B2
+      inverted: true           
+      mode:
+        input: true     
+        pullup: true     
+    on_press:
+    - logger.log: "Button 3 pressed"
+  - platform: gpio
+    name: "MCP23017 Input Button B3"
+    pin:
+      mcp23xxx: mcp23017_hub
+      number: 11  # Pin 11 on MCP23017 is B3
+      mode:
+        input: true     
+        pullup: true         
+      inverted: true
+    on_press:
+      - logger.log: "Button 4 pressed"
 
 text_sensor:
   - platform: template
