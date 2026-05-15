@@ -20,9 +20,10 @@ psram:
 
 logger:
   hardware_uart: UART0
-  logs:
-    log: NONE
-    component: NONE
+  # logs:
+  #   display: NONE
+  #   logger: NONE
+  #   component: NONE
 
 
 wifi:

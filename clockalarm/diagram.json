@@ -19,13 +19,7 @@
       "rotate": 90,
       "attrs": { "swapXY": "0", "flipHorizontal": "0", "flipvertical": "0" }
     },
-    { 
-      "type": "chip-mcp23017", 
-      "id": "chip1", 
-      "top": -181.38, 
-      "left": 571.2, 
-      "attrs": {} 
-    },
+    { "type": "chip-mcp23017", "id": "chip1", "top": -181.38, "left": 571.2, "attrs": {} },
     {
       "type": "wokwi-pushbutton",
       "id": "btn1",
@@ -53,8 +47,7 @@
       "top": -118.6,
       "left": 374.4,
       "attrs": { "color": "green", "xray": "1" }
-    },
-    { "type": "wokwi-junction", "id": "j1", "top": 43.2, "left": 312, "attrs": {} }
+    }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -68,20 +61,17 @@
     [ "lcd1:SCK", "esp:14", "green", [ "h0" ] ],
     [ "lcd1:LED", "esp:21", "green", [ "h0" ] ],
     [ "lcd1:MISO", "esp:12", "green", [ "h-489.6", "v-336", "h172.8" ] ],
-    [ "esp:GND.2", "btn2:2.l", "black", [ "v0" ] ],
-    [ "btn1:2.l", "j1:J", "black", [ "h-57.6", "v0.2" ] ],
-    [ "btn4:2.l", "j1:J", "black", [ "h-57.6", "v0.2" ] ],
-    [ "btn3:2.l", "j1:J", "black", [ "h-57.6", "v0.2" ] ],
     [ "btn3:1.r", "chip1:GPB0", "green", [ "v0" ] ],
     [ "btn4:1.r", "chip1:GPB1", "green", [ "v0" ] ],
     [ "btn1:1.r", "chip1:GPB2", "green", [ "v0", "h19.4", "v-115.2" ] ],
     [ "btn2:1.r", "chip1:GPB3", "green", [ "v0", "h38.6", "v-163.2" ] ],
     [ "esp:9", "chip1:SCL", "yellow", [ "v-153.65", "h441.6", "v144" ] ],
     [ "esp:8", "chip1:SDA", "blue", [ "v-172.85", "h393.6", "v163.2" ] ],
-    [ "chip1:INTB", "esp:7", "violet", [ "h30.61", "v-105.6", "h-528" ] ]
+    [ "chip1:INTB", "esp:7", "violet", [ "h30.61", "v-105.6", "h-528" ] ],
+    [ "esp:GND.2", "btn2:2.l", "black", [ "v9.6", "h134.4" ] ],
+    [ "esp:GND.2", "btn1:2.l", "black", [ "v28.8", "h115.2", "v-86.4", "h-9.6" ] ],
+    [ "esp:GND.2", "btn4:2.l", "black", [ "v48", "h96", "v-172.8" ] ],
+    [ "esp:GND.2", "btn3:2.l", "black", [ "v76.8", "h76.8", "v-268.8" ] ]
   ],
-  "dependencies": {
-     "chip-mcp23017": "github:mohankumargupta/wokwi-mcp23017@0.0.1"
-  }
+  "dependencies": { "chip-mcp23017": "github:mohankumargupta/wokwi-mcp23017@0.0.1" }
 }
-
